@@ -133,14 +133,25 @@ function CrearGrupo () {
 }
 
 function BusquedaPorNombre() {
-    ArregloOrdenado = ArrayAlumnos.sort((x, y) => x.nombre.localeCompare(y.nombre));
+
+    var ArregloOrdenado = ArrayAlumnos.sort((x, y) => x.nombre.localeCompare(y.nombre));
     
     const nombre = document.getElementById("nombre1").value;
     let inicio = 0;
     let fin = ArregloOrdenado.lenght-1;
 
     while (inicio <= fin) {
-// https://www.youtube.com/shorts/NsZSvfMjFP4
+        let medio = Math.floor( (inicio + fin) / 2)
+        if (ArregloOrdenado[medio] === nombre) {
+            return medio
+        }
+        else if (ArregloOrdenado[medio] < nombre) {
+            inicio = medio + 1;
+        }
+        else {
+            fin = medio - 1;
+        }
+        return (false);
     }
 
 
