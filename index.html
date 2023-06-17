@@ -48,15 +48,24 @@
         <button onclick="RegistroClase()" id="Inscribirse">Inscribirme</button>
     </div>
 
-    <p>Escriba la calificacion de la materia</p>
+    <button onclick="VerAlumnos()">Ver alumnos</button>
 
+    <ul id="listaAlumnos"></ul>
 
-    <!-- <form action="" id="registroClase">
-        <p>Escriba el nombre de la clase a la que está inscrito: </p>
-        <input type="text" name ="nomClase" id ="nomClase">
-        <p>Escriba la calificación final:</p>
-        <input type="text" name="calificacion" id="calificacion">
-    </form>
-    <button onclick="RegistroClase()"> Registrar</button> -->
-</body>
+    <p>Escriba el nombre del grupo: </p>
+    <input type="text" name="nombreGrupo" id="nombreGrupo">
+
+    <p>Seleccione los alumnos que desea añadir al grupo: </p>
+        <div id="segundo">
+            
+        </div>
+    <button onclick="CrearGrupo()">Seleccionar alumnos</button>
+
+    <button onclick="CrearGrupo()">Crear grupo</button>
+
+    <p>Escriba el nombre que desea buscar: </p>
+    <input type="text" name="nombre1" id="nombre1">
+
+    <button onclick="BusquedaPorNombre()">Buscar alumno</button>
+
 </html>

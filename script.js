@@ -55,7 +55,7 @@ function RegistroClase() {
         if (checkbox1.checked) {
             let cal = prompt("Escriba la calificación del alumno: ");
             let NuevaClase = new Clase (checkLengua,cal);
-            ArrayAlumnos[numAlumno].clase = NuevaClase;
+            ArrayAlumnos[numAlumno].clase.push(NuevaClase);
         }
 
         var checkbox2 = document.querySelector("#cbox2");
@@ -63,7 +63,7 @@ function RegistroClase() {
         if (checkbox2.checked) {
             let cal = prompt("Escriba la calificación del alumno: ");
             let NuevaClase = new Clase (checkMatematicas,cal);
-            ArrayAlumnos[numAlumno].clase = NuevaClase;
+            ArrayAlumnos[numAlumno].clase.push(NuevaClase);
         }
 
         var checkbox3 = document.querySelector("#cbox3");
@@ -71,7 +71,7 @@ function RegistroClase() {
         if (checkbox3.checked) {
             let cal = prompt("Escriba la calificación del alumno: ");
             let NuevaClase = new Clase (checkBiologia,cal);
-            ArrayAlumnos[numAlumno].clase = NuevaClase;
+            ArrayAlumnos[numAlumno].clase.push(NuevaClase);
         }
 
         var checkbox4 = document.querySelector("#cbox4");
@@ -79,7 +79,7 @@ function RegistroClase() {
         if (checkbox4.checked) {
             let cal = prompt("Escriba la calificación del alumno: ");
             let NuevaClase = new Clase (checkGeografia,cal);
-            ArrayAlumnos[numAlumno].clase = NuevaClase;
+            ArrayAlumnos[numAlumno].clase.push(NuevaClase);
         }
 
         var checkbox5 = document.querySelector("#cbox5");
@@ -87,7 +87,7 @@ function RegistroClase() {
         if (checkbox5.checked) {
             let cal = prompt("Escriba la calificación del alumno: ");
             let NuevaClase = new Clase (checkTecnologia,cal);
-            ArrayAlumnos[numAlumno].clase = NuevaClase;
+            ArrayAlumnos[numAlumno].clase.push(NuevaClase);
         }
 
         var checkbox6 = document.querySelector("#cbox6");
@@ -95,7 +95,7 @@ function RegistroClase() {
         if (checkbox6.checked) {
             let cal = prompt("Escriba la calificación del alumno: ");
             let NuevaClase = new Clase (checkArtes,cal);
-            ArrayAlumnos[numAlumno].clase = NuevaClase;
+            ArrayAlumnos[numAlumno].clase.push(NuevaClase);
         }
 
         var checkbox7 = document.querySelector("#cbox7");
@@ -103,11 +103,47 @@ function RegistroClase() {
         if (checkbox7.checked) {
             let cal = prompt("Escriba la calificación del alumno: ");
             let NuevaClase = new Clase (checkIngles,cal);
-            ArrayAlumnos[numAlumno].clase = NuevaClase;
+            ArrayAlumnos[numAlumno].clase.push(NuevaClase);
         }
 
-        console.table(ArrayAlumnos)
+        console.table(ArrayAlumnos);
 }
 
+function VerAlumnos() {
+    var text = "";
+    for (var i = 0; i < ArrayAlumnos.length; i++) {
+            text += '<li>'+ArrayAlumnos[i].nombre + " " +ArrayAlumnos[i].apellidos+'</li>';
+        }
+    document.querySelector("#listaAlumnos").innerHTML = text;
+}
+
+function EscogerAlumnos() {
+    var text = "";
+    for (var i = 0; i < ArrayAlumnos.length; i++) {
+            text += '<p>'+ArrayAlumnos[i].nombre + " " +ArrayAlumnos[i].apellidos+'</p>'+ '<input type="checkbox" id="'+ArrayAlumnos[i]+'" value="'+ArrayAlumnos[i].nombre+'">';
+        }
+    document.querySelector("#segundo").innerHTML = text;
+}
+
+// Ehhhh, me enredé y ya no supe como crear esta función...se queda incompleta
+function CrearGrupo () {
+
+    EscogerAlumnos();
+
+}
+
+function BusquedaPorNombre() {
+    ArregloOrdenado = ArrayAlumnos.sort((x, y) => x.nombre.localeCompare(y.nombre));
+    
+    const nombre = document.getElementById("nombre1").value;
+    let inicio = 0;
+    let fin = ArregloOrdenado.lenght-1;
+
+    while (inicio <= fin) {
+// https://www.youtube.com/shorts/NsZSvfMjFP4
+    }
 
 
+
+    
+}
