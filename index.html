@@ -9,12 +9,54 @@
     <title>Registro</title>
 </head>
 <body>
-    <p>Escriba su nombre</p>
-    <input type="text" name="nombre" id="nombre" required>
-    <p>Escriba sus apellidos</p>
-    <input type="text" name="apellidos" id="apellidos" required>
-    <p>Escriba su edad</p>
-    <input type="text" name="edad" id="edad" required>
+    <form action="" id="registroAlum">
+        <p>Escriba su nombre</p>
+        <input type="text" name="nombre" id="nombre" required>
+        <p>Escriba sus apellidos</p>
+        <input type="text" name="apellidos" id="apellidos" required>
+        <p>Escriba su edad</p>
+        <input type="text" name="edad" id="edad" required>
+    </form>
+
     <button onclick="RegistroAlumno()"> Registrarse </button>
+
+    <button onclick="ImprimirListaAlumnos()"> Ver lista de alumnos </button>
+
+    <div class="primero">
+        <p>Seleccione la clase a la que desea inscribirse: </p>
+        <label>
+            <input type="checkbox" id="cbox1" value="Lengua"> Español
+        </label>
+        <label>
+            <input type="checkbox" id="cbox2" value="Matematicas"> Matemáticas
+        </label>
+        <label>
+            <input type="checkbox" id="cbox3" value="Biologia"> Biología
+        </label>
+        <label>
+            <input type="checkbox" id="cbox4" value="Geografia"> Geografía de México y del Mundo
+        </label>
+        <label>
+            <input type="checkbox" id="cbox5" value="Tecnologia"> Tecnología
+        </label>
+        <label>
+            <input type="checkbox" id="cbox6" value="Artes"> Artes
+        </label>
+        <label>
+            <input type="checkbox" id="cbox7" value="Ingles"> Inglés
+        </label>
+        <button onclick="RegistroClase()" id="Inscribirse">Inscribirme</button>
+    </div>
+
+    <p>Escriba la calificacion de la materia</p>
+
+
+    <!-- <form action="" id="registroClase">
+        <p>Escriba el nombre de la clase a la que está inscrito: </p>
+        <input type="text" name ="nomClase" id ="nomClase">
+        <p>Escriba la calificación final:</p>
+        <input type="text" name="calificacion" id="calificacion">
+    </form>
+    <button onclick="RegistroClase()"> Registrar</button> -->
 </body>
 </html>
