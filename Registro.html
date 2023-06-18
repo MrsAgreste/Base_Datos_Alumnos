@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/registro.css" />
+    <script defer src="registro.js"></script>
+    <script defer src="./assets/js/barra-nav.js"></script>
+
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+        <!-- Librerias de Iconos -->
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Registro Alumnos</title>
+  </head>
+
+  <body>
+    <header class="header-area">
+      <div class="header-container">
+        <div class="site-logo">
+          <a href="">Gatitos<span>Bombay</span></a>
+        </div>
+
+        <div class="mobile-nav">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="site-nav-menu">
+          <ul class="primary-menu">
+            <li><a href="index.html" class="">Inicio</a></li>
+            <li><a href="" class="active">Registro</a></li>
+            <li><a href="" class="">Matricula</a></li>
+            <li><a href="" class="">Grupos</a></li>
+            <li><a href="" class="">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section class="main">
+      <div class="form-box">
+        <div class="form-value">
+          <form action="" id="registroAlum">
+            <div class="input-box">
+              <ion-icon name="people-outline"></ion-icon>
+              <input type="text" name="nombre" id="nombre"  placeholder=" " required />
+              <label for="">Escriba su nombre </label>
+            </div>
+            <div class="input-box">
+              <ion-icon name="people-outline"></ion-icon>
+              <input type="text" name="apellidos" id="apellidos"  placeholder=" " required />
+              <label for="">Escriba sus apellidos </label>
+            </div>
+            <div class="input-box">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input type="text" name="edad" id="edad"  placeholder=" " required />
+              <label for="">Escriba su edad </label>
+            </div>
+            <button onclick="RegistroAlumno()">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </body>
+</html>
