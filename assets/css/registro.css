@@ -16,6 +16,8 @@ body {
             background-position: center center;
 }
 
+/* barra de navegacion */
+
 .header-area {
     background: #142440;
     width: 100%;
@@ -94,8 +96,9 @@ body {
     cursor: pointer;
 }
 
-/* Diseño del formulario */
+/* final barra navegacion */
 
+/* Estilos pagina */
 .main {
     width: 100%;
     min-height: 100vh;
@@ -103,9 +106,64 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/* Estilos modales */
+
+.modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(73, 73, 73, 0.7);
+    z-index: 1;
+    visibility: hidden;
+}
+.modal-content {
+    width: 560px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+}
+.close {
+    width: 25px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    left: 92%;
+    top: 2%;
+}
+.close p {
+    color: #fff;
+    font-weight: 400;
+}
+.close:hover {
+    background-color: hsl(135, 2%, 59%);
+}
+.close:hover p {
+    color: #142440;
+}
+#modal-registro .modal-content {
+    background-image: url(../img/city1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#modal-matricula .modal-content {
+    background-color: #142440;
+}
+
+/* Diseño del formulario de registro */
 .form-box {
     position: relative;
-    width: 400px;
+    width: 500px;
     height:350px;
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
@@ -114,6 +172,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-self: center;
+    margin: 20px;
 }
 h2 {
     font-size: 2em;
@@ -168,6 +228,42 @@ button {
     font-size: 1em;
     font-weight: 600;
 }
+
+/* Final del formulario de registro */
+
+/* Diseño ver lista alumnos */
+
+.list-box {
+    position: relative;
+    width: 500px;
+    height: 350px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    color: #fff;
+}
+
+.title {
+    width: 100%;
+}
+.list-box p {
+    letter-spacing: 1px;
+}
+.list-box ul {
+    text-align: left;
+}
+.list-box li {
+    list-style:square;
+    margin: 3px 5px;
+}
+
+
 
 /* Diseño responsivo de la barra de navegación */
 

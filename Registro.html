@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/registro.css" />
-    <script defer src="registro.js"></script>
+
+    <script defer src="script.js"></script>
     <script defer src="./assets/js/barra-nav.js"></script>
 
     <!-- font awesome cdn -->
@@ -12,9 +13,17 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
     />
-        <!-- Librerias de Iconos -->
-    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Librerias de Iconos -->
+    <script
+      defer
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      defer
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <title>Registro Alumnos</title>
   </head>
 
@@ -31,39 +40,87 @@
 
         <div class="site-nav-menu">
           <ul class="primary-menu">
-            <li><a href="index.html" class="">Inicio</a></li>
-            <li><a href="" class="active">Registro</a></li>
-            <li><a href="" class="">Matricula</a></li>
-            <li><a href="" class="">Grupos</a></li>
-            <li><a href="" class="">Contacto</a></li>
+            <li><a class="active">Inicio</a></li>
+            <li><a class="" id="openModalR">Registro</a></li>
+            <li>
+              <a class="" id="openModalM">Matricula</a>
+            </li>
+            <li><a class="">Clases</a></li>
+            <li><a class="">Grupos</a></li>
           </ul>
         </div>
       </div>
     </header>
 
     <section class="main">
-      <div class="form-box">
-        <div class="form-value">
-          <form action="" id="registroAlum">
-            <div class="input-box">
-              <ion-icon name="people-outline"></ion-icon>
-              <input type="text" name="nombre" id="nombre"  placeholder=" " required />
-              <label for="">Escriba su nombre </label>
+      <!-- Modal para el registro -->
+      <div id="modal-registro" class="modal-container">
+        <div class="modal-content">
+          <div class="form-box">
+            <div class="form-value">
+              <div id="closeR" class="close">
+                <p>X</p>
+              </div>
+              <form action="" id="registroAlum">
+                <div class="input-box">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="">Escriba su nombre </label>
+                </div>
+                <div class="input-box">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <input
+                    type="text"
+                    name="apellidos"
+                    id="apellidos"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="">Escriba sus apellidos </label>
+                </div>
+                <div class="input-box">
+                  <ion-icon name="lock-closed-outline"></ion-icon>
+                  <input
+                    type="text"
+                    name="edad"
+                    id="edad"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="">Escriba su edad </label>
+                </div>
+                <button onclick="RegistroAlumno()">Registrarse</button>
+              </form>
             </div>
-            <div class="input-box">
-              <ion-icon name="people-outline"></ion-icon>
-              <input type="text" name="apellidos" id="apellidos"  placeholder=" " required />
-              <label for="">Escriba sus apellidos </label>
-            </div>
-            <div class="input-box">
-              <ion-icon name="lock-closed-outline"></ion-icon>
-              <input type="text" name="edad" id="edad"  placeholder=" " required />
-              <label for="">Escriba su edad </label>
-            </div>
-            <button onclick="RegistroAlumno()">Registrarse</button>
-          </form>
+          </div>
         </div>
       </div>
+      <!-- Final del modal registro  -->
+
+      <!-- Modal ver lista de alumnos  -->
+
+      <div id="modal-matricula" class="modal-container">
+        <div class="modal-content">
+          <div class="list-box">
+            <div id="closeM" class="close">
+              <p>X</p>
+            </div>
+            <div class="title">
+                <p>Lista de Alumnos matriculados</p>
+            </div>
+            
+            <ul id="listaAlumnos"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final del modal ver lista de alumnos -->
     </section>
 
     <!-- Jquery cdn -->
