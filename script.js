@@ -132,29 +132,43 @@ function CrearGrupo () {
 
 }
 
-function BusquedaPorNombre() {
+function busquedaBinaria(datos,valor) {
+    let izquierda = 0;
+    let derecha = datos.length - 1;
 
+    while (izquierda <= derecha) {
+        let mitad = Math.floor((izquierda + derecha) / 2);
+        let dato = datos[mitad].nombre;
+
+        if (dato === valor) {
+            resultado = true;
+            return mitad;
+        }
+        else if (valor > dato) {
+            izquierda = mitad + 1;
+        }
+        else {
+            derecha = mitad - 1;
+        }
+
+    }
+    return -1;
+}
+
+function BusquedaPorNombre() {
     var ArregloOrdenado = ArrayAlumnos.sort((x, y) => x.nombre.localeCompare(y.nombre));
     
     const nombre = document.getElementById("nombre1").value;
-    let inicio = 0;
-    let fin = ArregloOrdenado.lenght-1;
+    let datosAlumno = [];
 
-    while (inicio <= fin) {
-        let medio = Math.floor( (inicio + fin) / 2)
-        if (ArregloOrdenado[medio] === nombre) {
-            return medio
-        }
-        else if (ArregloOrdenado[medio] < nombre) {
-            inicio = medio + 1;
-        }
-        else {
-            fin = medio - 1;
-        }
-        return (false);
+    console.log(busquedaBinaria(ArregloOrdenado, nombre) );
+    indice = busquedaBinaria(ArregloOrdenado, nombre);
+
+    if (indice == -1) {
+        alert("Elemento no encontrado");
+    } else {
+        datosAlumno = ArregloOrdenado[indice];
+        console.table(datosAlumno);
+        console.log(indice);
     }
-
-
-
-    
 }
