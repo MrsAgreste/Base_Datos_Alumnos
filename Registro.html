@@ -42,9 +42,7 @@
           <ul class="primary-menu">
             <li><a class="active">Inicio</a></li>
             <li><a class="" id="openModalR">Registro</a></li>
-            <li>
-              <a class="" id="openModalM">Matricula</a>
-            </li>
+            <li><a class="" id="openModalM">Matricula</a></li>
             <li><a class="" id="openModalC">Inscripción</a></li>
             <li><a class="" id="openModalB">Búsqueda</a></li>
             <li><a class="">Grupos</a></li>
@@ -116,6 +114,17 @@
               <p>Lista de Alumnos matriculados</p>
             </div>
             <ul id="listaAlumnos"></ul>
+            <p class="title">Ordenar por calificación</p>
+            <label>
+              <input type="checkbox" class="checkbox" id="ascendente" />
+              <span class="check"></span>
+            </label>
+            <p class="inline">Ascendente</p>
+            <label>
+              <input type="checkbox" class="checkbox" id="descendente" />
+              <span class="check"></span>
+            </label>
+            <p class="inline">Descendente</p>
           </div>
         </div>
       </div>
@@ -133,48 +142,134 @@
             </div>
             <div class="table">
               <label>
-                <input type="checkbox" class="checkbox" id="cbox1" value="Lengua" /> 
-                <span class="check"></span> 
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  id="cbox1"
+                  value="Lengua"
+                />
+                <span class="check"></span>
               </label>
               <p>Español</p>
               <label>
-                <input type="checkbox" class="checkbox" id="cbox2" value="Matematicas" />
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  id="cbox2"
+                  value="Matematicas"
+                />
                 <span class="check"></span>
               </label>
               <p>Matemáticas</p>
               <label>
-                <input type="checkbox" class="checkbox" id="cbox3" value="Biologia" /> <span class="check"></span>
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  id="cbox3"
+                  value="Biologia"
+                />
+                <span class="check"></span>
               </label>
               <p>Biología</p>
               <label>
-                <input type="checkbox" class="checkbox" id="cbox4" value="Geografia" /> <span class="check"></span>
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  id="cbox4"
+                  value="Geografia"
+                />
+                <span class="check"></span>
               </label>
               <p>Geografía de México y del mundo</p>
               <label>
-                <input type="checkbox" class="checkbox" id="cbox5" value="Tecnologia" />
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  id="cbox5"
+                  value="Tecnologia"
+                />
                 <span class="check"></span>
               </label>
               <p>Tecnología</p>
               <label>
-                <input type="checkbox" class="checkbox" id="cbox6" value="Artes" /><span class="check"></span> 
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  id="cbox6"
+                  value="Artes"
+                /><span class="check"></span>
               </label>
               <p>Artes</p>
               <label>
-                <input type="checkbox" class="checkbox" id="cbox7" value="Ingles" /> <span class="check"></span>
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  id="cbox7"
+                  value="Ingles"
+                />
+                <span class="check"></span>
               </label>
               <p>Inglés</p>
               <label>
-                <input type="checkbox" class="checkbox" id="cbox8" value="Filosofia" /> <span class="check"></span>
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  id="cbox8"
+                  value="Filosofia"
+                />
+                <span class="check"></span>
               </label>
               <p>Filosofía</p>
             </div>
-            <button onclick="RegistroClase()" id="Inscribirse">
+            <button
+              class="btn-submit"
+              onclick="RegistroClase()"
+              id="Inscribirse"
+            >
               Inscribirme
             </button>
           </div>
         </div>
       </div>
       <!-- Final del modal para inscribirse a una clase -->
+
+      <!-- Modal para buscar alumnos -->
+      <div id="modal-busqueda" class="modal-container">
+        <div class="modal-content">
+          <div class="list-box">
+            <div id="closeB" class="close">
+              <p>X</p>
+            </div>
+            <div class="question-form">
+              <div class="input-box">
+                <input
+                  type="text"
+                  name="nombre1"
+                  id="nombre1"
+                  placeholder=""
+                  required
+                />
+                <label for="">Escriba su nombre o apellido</label>
+              </div>
+              <button class="btn-submit" onclick="BusquedaAlumnos()">
+                Buscar alumno
+              </button>
+            </div>
+            <div class="student-data">
+              <div class="column">
+                <p id="title1"></p>
+                <ul id="datosAlumno"></ul>
+              </div>
+              <div class="column">
+                <p id="title2"></p>
+                <ul id="clasesA"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final del modal para buscar alumnos-->
     </section>
 
     <!-- Jquery cdn -->
