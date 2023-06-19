@@ -10,10 +10,11 @@
 body {
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
-        background-image: url(../img/city1.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
+    background-image: url(../img/city1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
 }
 
 /* barra de navegacion */
@@ -101,7 +102,6 @@ body {
 /* Estilos pagina */
 .main {
     width: 100%;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +113,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -157,6 +157,9 @@ body {
     background-position: center center;
 }
 #modal-matricula .modal-content {
+    background-color: #142440;
+}
+#modal-clase .modal-content {
     background-color: #142440;
 }
 
@@ -218,7 +221,7 @@ input:not(:placeholder-shown)~label {
     top: 20px;
 }
 button {
-    width: 100%;
+    width: 80%;
     height: 40px;
     border-radius: 40px;
     background: #fff;
@@ -248,9 +251,9 @@ button {
     margin: 20px;
     color: #fff;
 }
-
 .title {
     width: 100%;
+    padding: 15px;
 }
 .list-box p {
     letter-spacing: 1px;
@@ -261,6 +264,50 @@ button {
 .list-box li {
     list-style:square;
     margin: 3px 5px;
+}
+/* Final del modal ver lista de alumnos */
+
+/* Diseño inscripcion a clases */
+.table {
+    height: 180px;
+    padding: 0px 25px 15px 25px;
+    display: grid;
+    grid-template-columns: 10% 40% 10% 40%;
+    grid-template-rows: 25% 25% 25% 25%;
+    text-align: left;
+}
+.checkbox {
+    display: none;
+}
+.check {
+    display: inline-block;
+    position: relative;
+    height: 1.7em;
+    width: 1.7em;
+    background: black;
+    border-radius: 100%;
+}
+.checkbox label {
+    cursor: pointer;
+}
+label input:checked ~ .check {
+    box-shadow: 0px 0px 30px 0px #09f;
+}
+.check:after {
+    content: "";
+    position: absolute;
+    border: solid #fff;
+    border-width: 0 0.30em 0.30em 0;
+    transform: rotate(45deg);
+    width: 0.40em;
+    height: 0.80em;
+    left: 0.6em;
+    top: 0.25em;
+    opacity: 0;
+    transition: .3s ease;
+}
+label input:checked ~.check:after {
+    opacity: 1;
 }
 
 

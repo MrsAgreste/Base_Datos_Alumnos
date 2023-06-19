@@ -45,7 +45,8 @@
             <li>
               <a class="" id="openModalM">Matricula</a>
             </li>
-            <li><a class="">Clases</a></li>
+            <li><a class="" id="openModalC">Inscripción</a></li>
+            <li><a class="" id="openModalB">Búsqueda</a></li>
             <li><a class="">Grupos</a></li>
           </ul>
         </div>
@@ -112,15 +113,68 @@
               <p>X</p>
             </div>
             <div class="title">
-                <p>Lista de Alumnos matriculados</p>
+              <p>Lista de Alumnos matriculados</p>
             </div>
-            
             <ul id="listaAlumnos"></ul>
           </div>
         </div>
       </div>
-
       <!-- Final del modal ver lista de alumnos -->
+
+      <!-- Modal para inscribirse a una clase -->
+      <div id="modal-clase" class="modal-container">
+        <div class="modal-content">
+          <div class="list-box">
+            <div id="closeC" class="close">
+              <p>X</p>
+            </div>
+            <div class="title">
+              <p>Seleccione la clase a la que desea inscribirse:</p>
+            </div>
+            <div class="table">
+              <label>
+                <input type="checkbox" class="checkbox" id="cbox1" value="Lengua" /> 
+                <span class="check"></span> 
+              </label>
+              <p>Español</p>
+              <label>
+                <input type="checkbox" class="checkbox" id="cbox2" value="Matematicas" />
+                <span class="check"></span>
+              </label>
+              <p>Matemáticas</p>
+              <label>
+                <input type="checkbox" class="checkbox" id="cbox3" value="Biologia" /> <span class="check"></span>
+              </label>
+              <p>Biología</p>
+              <label>
+                <input type="checkbox" class="checkbox" id="cbox4" value="Geografia" /> <span class="check"></span>
+              </label>
+              <p>Geografía de México y del mundo</p>
+              <label>
+                <input type="checkbox" class="checkbox" id="cbox5" value="Tecnologia" />
+                <span class="check"></span>
+              </label>
+              <p>Tecnología</p>
+              <label>
+                <input type="checkbox" class="checkbox" id="cbox6" value="Artes" /><span class="check"></span> 
+              </label>
+              <p>Artes</p>
+              <label>
+                <input type="checkbox" class="checkbox" id="cbox7" value="Ingles" /> <span class="check"></span>
+              </label>
+              <p>Inglés</p>
+              <label>
+                <input type="checkbox" class="checkbox" id="cbox8" value="Filosofia" /> <span class="check"></span>
+              </label>
+              <p>Filosofía</p>
+            </div>
+            <button onclick="RegistroClase()" id="Inscribirse">
+              Inscribirme
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Final del modal para inscribirse a una clase -->
     </section>
 
     <!-- Jquery cdn -->

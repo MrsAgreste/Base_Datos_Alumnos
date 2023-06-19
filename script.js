@@ -59,9 +59,28 @@ class Clase {
   }
 }
 
-var numAlumno = 1;
+//MODAL REGISTRO CLASE
+let openModalC = document.getElementById("openModalC");
+let modal_clase = document.getElementById("modal-clase");
+let closeModalC = document.getElementById("closeC");
+
+openModalC.onclick = function () {
+  modal_clase.style.visibility = "visible";
+};
+closeModalC.onclick = function () {
+  modal_clase.style.visibility = "hidden";
+};
+
+function obtenerNumA() {
+  var numAlumno = prompt("Escriba su numero de alumno");
+  numAlumno -= 1;
+  return numAlumno;
+}
 
 function RegistroClase() {
+  
+  numAlumno = obtenerNumA();
+
   var checkbox1 = document.querySelector("#cbox1");
   var checkLengua = document.querySelector("#cbox1").value;
   if (checkbox1.checked) {
@@ -118,6 +137,14 @@ function RegistroClase() {
     ArrayAlumnos[numAlumno].clase.push(NuevaClase);
   }
 
+  var checkbox8 = document.querySelector("#cbox7");
+  var checkFilosofia = document.querySelector("#cbox7").value;
+  if (checkbox8.checked) {
+    let cal = prompt("Escriba la calificación del alumno: ");
+    let NuevaClase = new Clase(checkFilosofia, cal);
+    ArrayAlumnos[numAlumno].clase.push(NuevaClase);
+  }
+
   console.table(ArrayAlumnos);
 }
 
@@ -145,9 +172,8 @@ openModalM.onclick = function () {
   VerAlumnos();
 };
 closeModalM.onclick = function () {
-    modal_matricula.style.visibility = "hidden";
+  modal_matricula.style.visibility = "hidden";
 };
-
 
 function EscogerAlumnos() {
   var text = "";
