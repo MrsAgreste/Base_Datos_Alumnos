@@ -1,5 +1,6 @@
 var ArrayAlumnos = [];
 var ArregloOrdenado = [];
+var header = document.querySelector(".header-area");
 
 class Alumno {
   constructor(nom, ape, edad) {
@@ -36,9 +37,11 @@ let closeModalR = document.getElementById("closeR");
 
 openModalR.onclick = function () {
   modal_registro.style.visibility = "visible";
+  header.style.visibility = "hidden";
 };
 closeModalR.onclick = function () {
   modal_registro.style.visibility = "hidden";
+  header.style.visibility = "visible";
 };
 
 class Clase {
@@ -55,9 +58,11 @@ let closeModalC = document.getElementById("closeC");
 
 openModalC.onclick = function () {
   modal_clase.style.visibility = "visible";
+  header.style.visibility = "hidden";
 };
 closeModalC.onclick = function () {
   modal_clase.style.visibility = "hidden";
+  header.style.visibility = "visible";
 };
 
 function obtenerNomA() {
@@ -199,10 +204,12 @@ let closeModalM = document.getElementById("closeM");
 
 openModalM.onclick = function () {
   modal_matricula.style.visibility = "visible";
+  header.style.visibility = "hidden";
   VerAlumnos(ArrayAlumnos);
 };
 closeModalM.onclick = function () {
   modal_matricula.style.visibility = "hidden";
+  header.style.visibility = "visible";
 };
 
 //MODAL PARA CREAR GRUPOS... N O    S I R V E
@@ -345,7 +352,9 @@ let closeModalB = document.getElementById("closeB");
 
 openModalB.onclick = function () {
   modal_busqueda.style.visibility = "visible";
+  header.style.visibility = "hidden";v
 };
 closeModalB.onclick = function () {
   modal_busqueda.style.visibility = "hidden";
+  header.style.visibility = "visible";
 };
