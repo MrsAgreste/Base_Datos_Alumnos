@@ -1,4 +1,9 @@
-var ArrayAlumnos = [];
+if(obtenerArrayDeLocalStorage()==null){
+  var ArrayAlumnos = [];
+}else{    
+  var ArrayAlumnos = obtenerArrayDeLocalStorage();
+}
+
 var ArregloOrdenado = [];
 
 class Alumno {
@@ -20,13 +25,32 @@ function RegistroAlumno() {
   //Los datos se guardan como propiedades del objeto
   let NuevoAlumno = new Alumno(nom, ape, edad);
 
+
   //Se agrega el alumno a la lista de alumnos
   ArrayAlumnos.push(NuevoAlumno);
+
+  guardarArrayEnLocalStorage(ArrayAlumnos)
 
   //Se limpia el formulario
   document.getElementById("registroAlum").reset();
 
   alert(ArrayAlumnos);
+}
+
+//Guardado en localStorage
+function guardarArrayEnLocalStorage(array) {
+  let arraySerializado = JSON.stringify(array);
+  localStorage.setItem('Alumnos', arraySerializado);
+  console.log(arraySerializado)
+}
+
+//Recuperar del localStorage
+function obtenerArrayDeLocalStorage() {
+  let arraySerializado = localStorage.getItem('Alumnos');
+  if (arraySerializado) {
+    return JSON.parse(arraySerializado);
+  }
+  return [];
 }
 
 // MODAL REGISTRO
@@ -165,8 +189,9 @@ function ordenarDescendente() {
   });
 }
 
-function VerAlumnos(array) {
+function VerAlumnos() {
   var text = "";
+  let array = obtenerArrayDeLocalStorage()
   for (var i = 0; i < array.length; i++) {
     text += "<li>" + array[i].nombre + " " + array[i].apellidos + "</li>";
   }
@@ -199,7 +224,7 @@ let closeModalM = document.getElementById("closeM");
 
 openModalM.onclick = function () {
   modal_matricula.style.visibility = "visible";
-  VerAlumnos(ArrayAlumnos);
+  VerAlumnos();
 };
 closeModalM.onclick = function () {
   modal_matricula.style.visibility = "hidden";
@@ -235,10 +260,11 @@ function CrearGrupo() {
 function busquedaBinariaN(datos, valor) {
   let izquierda = 0;
   let derecha = datos.length - 1;
+  let tipo = 'nombre'
 
   while (izquierda <= derecha) {
     let mitad = Math.floor((izquierda + derecha) / 2);
-    let dato = datos[mitad].nombre;
+    let dato = `${datos[mitad}.${tipo]}`
 
     if (dato === valor) {
       resultado = true;
