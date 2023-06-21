@@ -264,7 +264,7 @@ function busquedaBinariaN(datos, valor) {
 
   while (izquierda <= derecha) {
     let mitad = Math.floor((izquierda + derecha) / 2);
-    let dato = `${datos[mitad}.${tipo]}`
+    let dato = ``
 
     if (dato === valor) {
       resultado = true;
