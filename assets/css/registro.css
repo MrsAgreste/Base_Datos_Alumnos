@@ -230,10 +230,17 @@ body {
             background-position: center center;
 }
 #modal-busqueda .modal-content {
-    background-color: #142440;background-image: url(../img/fondo5.jpg);
+    background-image: url(../img/fondo5.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
+}
+
+#modal-grupos .modal-content {
+    background-image: url(../img/fondo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 /* Diseño del formulario de registro */

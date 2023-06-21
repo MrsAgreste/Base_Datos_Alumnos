@@ -40,7 +40,7 @@ function RegistroAlumno() {
   //Se limpia el formulario
   document.getElementById("registroAlum").reset();
 
-  alert(ArrayAlumnos);
+  // alert(ArrayAlumnos);
 }
 
 //Guardado en localStorage
@@ -264,30 +264,6 @@ closeModalM.onclick = function () {
   header.style.visibility = "visible";
 };
 
-//MODAL PARA CREAR GRUPOS... N O    S I R V E
-
-function EscogerAlumnos() {
-  var text = "";
-  for (var i = 0; i < ArrayAlumnos.length; i++) {
-    text +=
-      "<p>" +
-      ArrayAlumnos[i].nombre +
-      " " +
-      ArrayAlumnos[i].apellidos +
-      "</p>" +
-      '<input type="checkbox" id="' +
-      ArrayAlumnos[i] +
-      '" value="' +
-      ArrayAlumnos[i].nombre +
-      '">';
-  }
-  document.querySelector("#segundo").innerHTML = text;
-}
-
-// Ehhhh, me enredé y ya no supe como crear esta función...se queda incompleta
-function CrearGrupo() {
-  EscogerAlumnos();
-}
 
 // MODAL BUSQUEDA ALUMNOS
 
@@ -412,3 +388,32 @@ closeModalB.onclick = function () {
   modal_busqueda.style.visibility = "hidden";
   header.style.visibility = "visible";
 };
+
+//MODAL PARA CREAR GRUPOS... 
+
+function obtenerLetraG() {
+  var letraGrupo = prompt("Escriba la letra del grupo que desea inscribirse: ");
+  return letraGrupo;
+}
+
+function ObtenerDatosGrupo() {
+  let nombreA = obtenerNomA();
+  let letraG = obtenerLetraG();
+  
+}
+
+
+
+let openModalG = document.getElementById("openModalG");
+let modal_grupos = document.getElementById("modal-grupos");
+let closeModalG = document.getElementById("closeG");
+
+openModalG.onclick = function () {
+  modal_grupos.style.visibility = "visible";
+  header.style.visibility = "hidden";
+};
+closeModalG.onclick = function () {
+  modal_grupos.style.visibility = "hidden";
+  header.style.visibility = "visible";
+};
+
