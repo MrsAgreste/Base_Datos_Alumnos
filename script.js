@@ -221,9 +221,9 @@ function ordenarDescendente() {
   });
 }
 
-function VerAlumnos() {
+function VerAlumnos(arreglo) {
   var text = "";
-  let array = obtenerArrayDeLocalStorage()
+  let array = arreglo;
   for (var i = 0; i < array.length; i++) {
     text += "<li>" + array[i].nombre + " " + array[i].apellidos + "</li>";
   }
@@ -257,7 +257,7 @@ let closeModalM = document.getElementById("closeM");
 openModalM.onclick = function () {
   modal_matricula.style.visibility = "visible";
   header.style.visibility = "hidden";
-  VerAlumnos();
+  VerAlumnos(ArrayAlumnos);
 };
 closeModalM.onclick = function () {
   modal_matricula.style.visibility = "hidden";
