@@ -1,4 +1,14 @@
-var ArrayAlumnos = [];
+document.onload = chargingLocalStorage();
+var ArrayAlumnos;
+
+function chargingLocalStorage() {
+  if (obtenerArrayDeLocalStorage() == null) {
+    ArrayAlumnos = [];
+  } else {
+    ArrayAlumnos = obtenerArrayDeLocalStorage();
+  }
+}
+
 var ArregloOrdenado = [];
 var header = document.querySelector(".header-area");
 
@@ -21,13 +31,32 @@ function RegistroAlumno() {
   //Los datos se guardan como propiedades del objeto
   let NuevoAlumno = new Alumno(nom, ape, edad);
 
+
   //Se agrega el alumno a la lista de alumnos
   ArrayAlumnos.push(NuevoAlumno);
+
+  guardarArrayEnLocalStorage(ArrayAlumnos)
 
   //Se limpia el formulario
   document.getElementById("registroAlum").reset();
 
   alert(ArrayAlumnos);
+}
+
+//Guardado en localStorage
+function guardarArrayEnLocalStorage(array) {
+  let arraySerializado = JSON.stringify(array);
+  localStorage.setItem('Alumnos', arraySerializado);
+  console.log(arraySerializado);
+}
+
+//Recuperar del localStorage
+function obtenerArrayDeLocalStorage() {
+  let arraySerializado = localStorage.getItem('Alumnos');
+  if (arraySerializado) {
+    return JSON.parse(arraySerializado);
+  }
+  return [];
 }
 
 // MODAL REGISTRO
@@ -73,13 +102,16 @@ function obtenerPromedio(indice) {
   let datosAlumno = ArregloOrdenado[indice].clase;
   let sumaCal = 0;
   let promedio = 0;
+  let j = BusquedaSecuencial(ArregloOrdenado[indice].nombre, ArregloOrdenado[indice].apellidos);
 
   for (i = 0; i < datosAlumno.length; i++) {
     let cal = Number(datosAlumno[i].calificacion);
     sumaCal += cal;
   }
   promedio = sumaCal / datosAlumno.length;
-  ArregloOrdenado[indice].promedio = promedio;
+  console.log(promedio)
+  //ArregloOrdenado[indice].promedio = promedio;
+  ArrayAlumnos[j].promedio = promedio;
 }
 
 function RegistroClase() {
@@ -90,13 +122,15 @@ function RegistroClase() {
   nombre = obtenerNomA();
 
   const index = busquedaBinariaN(ArregloOrdenado, nombre);
+  const i = BusquedaSecuencial(ArregloOrdenado[index].nombre, ArregloOrdenado[index].apellidos)
 
   var checkbox1 = document.querySelector("#cbox1");
   var checkLengua = document.querySelector("#cbox1").value;
   if (checkbox1.checked) {
     let cal = prompt("Escriba la calificación del alumno: ");
     let NuevaClase = new Clase(checkLengua, cal);
-    ArregloOrdenado[index].clase.push(NuevaClase);
+    //ArregloOrdenado[index].clase.push(NuevaClase);
+    ArrayAlumnos[i].clase.push(NuevaClase);
   }
 
   var checkbox2 = document.querySelector("#cbox2");
@@ -104,7 +138,8 @@ function RegistroClase() {
   if (checkbox2.checked) {
     let cal = prompt("Escriba la calificación del alumno: ");
     let NuevaClase = new Clase(checkMatematicas, cal);
-    ArregloOrdenado[index].clase.push(NuevaClase);
+    //ArregloOrdenado[index].clase.push(NuevaClase);
+    ArrayAlumnos[i].clase.push(NuevaClase);
   }
 
   var checkbox3 = document.querySelector("#cbox3");
@@ -112,7 +147,8 @@ function RegistroClase() {
   if (checkbox3.checked) {
     let cal = prompt("Escriba la calificación del alumno: ");
     let NuevaClase = new Clase(checkBiologia, cal);
-    ArregloOrdenado[index].clase.push(NuevaClase);
+    //ArregloOrdenado[index].clase.push(NuevaClase);
+    ArrayAlumnos[i].clase.push(NuevaClase);
   }
 
   var checkbox4 = document.querySelector("#cbox4");
@@ -120,7 +156,8 @@ function RegistroClase() {
   if (checkbox4.checked) {
     let cal = prompt("Escriba la calificación del alumno: ");
     let NuevaClase = new Clase(checkGeografia, cal);
-    ArregloOrdenado[index].clase.push(NuevaClase);
+    //ArregloOrdenado[index].clase.push(NuevaClase);
+    ArrayAlumnos[i].clase.push(NuevaClase);
   }
 
   var checkbox5 = document.querySelector("#cbox5");
@@ -128,7 +165,8 @@ function RegistroClase() {
   if (checkbox5.checked) {
     let cal = prompt("Escriba la calificación del alumno: ");
     let NuevaClase = new Clase(checkTecnologia, cal);
-    ArregloOrdenado[index].clase.push(NuevaClase);
+   // ArregloOrdenado[index].clase.push(NuevaClase);
+    ArrayAlumnos[i].clase.push(NuevaClase);
   }
 
   var checkbox6 = document.querySelector("#cbox6");
@@ -136,7 +174,8 @@ function RegistroClase() {
   if (checkbox6.checked) {
     let cal = prompt("Escriba la calificación del alumno: ");
     let NuevaClase = new Clase(checkArtes, cal);
-    ArregloOrdenado[index].clase.push(NuevaClase);
+    //ArregloOrdenado[index].clase.push(NuevaClase);
+    ArrayAlumnos[i].clase.push(NuevaClase);
   }
 
   var checkbox7 = document.querySelector("#cbox7");
@@ -144,7 +183,8 @@ function RegistroClase() {
   if (checkbox7.checked) {
     let cal = prompt("Escriba la calificación del alumno: ");
     let NuevaClase = new Clase(checkIngles, cal);
-    ArregloOrdenado[index].clase.push(NuevaClase);
+    //ArregloOrdenado[index].clase.push(NuevaClase);
+    ArrayAlumnos[i].clase.push(NuevaClase);
   }
 
   var checkbox8 = document.querySelector("#cbox8");
@@ -152,10 +192,21 @@ function RegistroClase() {
   if (checkbox8.checked) {
     let cal = prompt("Escriba la calificación del alumno: ");
     let NuevaClase = new Clase(checkFilosofia, cal);
-    ArregloOrdenado[index].clase.push(NuevaClase);
-  }
+    //ArregloOrdenado[index].clase.push(NuevaClase);    
+    ArrayAlumnos[i].clase.push(NuevaClase);
+  } 
 
   obtenerPromedio(index);
+  guardarArrayEnLocalStorage(ArrayAlumnos);
+}
+
+function BusquedaSecuencial(nom, ape){
+  let aux = ArregloOrdenado
+  for(let i = 0; i<aux.length; i++){
+    if(aux[i].nombre == nom && aux[i].apellidos == ape){
+      return i;
+    }
+  }
 }
 
 // MODAL VER ALUMNOS Y ORDENAR POR CALIFIACIÓN
@@ -170,8 +221,9 @@ function ordenarDescendente() {
   });
 }
 
-function VerAlumnos(array) {
+function VerAlumnos() {
   var text = "";
+  let array = obtenerArrayDeLocalStorage()
   for (var i = 0; i < array.length; i++) {
     text += "<li>" + array[i].nombre + " " + array[i].apellidos + "</li>";
   }
@@ -205,7 +257,7 @@ let closeModalM = document.getElementById("closeM");
 openModalM.onclick = function () {
   modal_matricula.style.visibility = "visible";
   header.style.visibility = "hidden";
-  VerAlumnos(ArrayAlumnos);
+  VerAlumnos();
 };
 closeModalM.onclick = function () {
   modal_matricula.style.visibility = "hidden";
@@ -265,7 +317,7 @@ function busquedaBinariaA(datos, valor) {
 
   while (izquierda <= derecha) {
     let mitad = Math.floor((izquierda + derecha) / 2);
-    let dato = datos[mitad].apellidos;
+    let dato = datos[mitad].apellidos;    
 
     if (dato === valor) {
       resultado = true;
@@ -275,7 +327,9 @@ function busquedaBinariaA(datos, valor) {
     } else {
       derecha = mitad - 1;
     }
+    console.log(datos[mitad].apellidos)
   }
+  console.log(ArrayAlumnos)
   return -1;
 }
 
@@ -352,7 +406,7 @@ let closeModalB = document.getElementById("closeB");
 
 openModalB.onclick = function () {
   modal_busqueda.style.visibility = "visible";
-  header.style.visibility = "hidden";v
+  header.style.visibility = "hidden"; 
 };
 closeModalB.onclick = function () {
   modal_busqueda.style.visibility = "hidden";
